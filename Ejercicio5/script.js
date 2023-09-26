@@ -1,25 +1,21 @@
-function calcularDiferenciaDias(fechaInicio, fechaFin) {
-    const date1 = new Date(fechaInicio);
-    const date2 = new Date(fechaFin);
-    const diferenciaMilisegundos = date2 - date1;
-    const dias = Math.floor(diferenciaMilisegundos / (1000 * 60 * 60 * 24));
-    return dias;
+function contarDigitos(numero) {
+    const cadenaNumero = numero.toString();
+    const cantidadDigitos = cadenaNumero.length;
+    return cantidadDigitos;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const fechaInicioInput = document.getElementById('fechaInicio');
-    const fechaFinInput = document.getElementById('fechaFin');
+    const numeroInput = document.getElementById('numero');
     const resultadoParrafo = document.getElementById('resultado');
-    const calcularBtn = document.getElementById('calcularBtn');
+    const contarBtn = document.getElementById('contarBtn');
 
-    calcularBtn.addEventListener('click', () => {
-        const fechaInicio = fechaInicioInput.value;
-        const fechaFin = fechaFinInput.value;
-        const diferenciaDias = calcularDiferenciaDias(fechaInicio, fechaFin);
-        mostrarResultado(diferenciaDias);
+    contarBtn.addEventListener('click', () => {
+        const numero = numeroInput.value;
+        const cantidadDigitos = contarDigitos(numero);
+        mostrarResultado(cantidadDigitos);
     });
 
-    function mostrarResultado(diferenciaDias) {
-        resultadoParrafo.textContent = `Número de días entre las fechas: ${diferenciaDias}`;
+    function mostrarResultado(cantidadDigitos) {
+        resultadoParrafo.textContent = `El número ingresado tiene ${cantidadDigitos} dígitos.`;
     }
 });
